@@ -11,3 +11,84 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+  position: relative;
+}
+
+li p,
+.img-container {
+  width: calc(100% / 6);
+  text-align: center;
+}
+
+img {
+  border-radius: 50%;
+}
+
+ul {
+  min-width: 500px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 105%;
+  min-width: 110px;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  padding: 2em 1em;
+}
+
+/* Modal Styling */
+.modal {
+  background-color: rgba(1, 1, 1, 0.9);
+  color: white;
+  min-width: 500px;
+  position: absolute;
+  padding: 1em;
+  top: 20%;
+  left: 30%;
+}
+
+.character {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 0.6em;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3em 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-group>input {
+  width: 20px;
+}
+
+.form-group > input[type="text"] {
+  width: 150px;
+}
+
+
