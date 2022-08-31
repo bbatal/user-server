@@ -12,7 +12,7 @@ export function get() {
   .catch(err => console.log(err));
 }
 
-export function Fetcher(data) {
+export function create(data) {
   return fetch('http://localhost:4000/user', {
         method: 'POST',
         body: JSON.stringify(data),
@@ -28,7 +28,7 @@ export function Fetcher(data) {
     }).catch(err => err);
 }
 
-export function Update(data) {
+export function update(data) {
   return fetch(`http://localhost:4000/user/${data.id}`, {
         method: 'PUT',
         body: JSON.stringify(data),
@@ -44,7 +44,7 @@ export function Update(data) {
     }).catch(err => err);
 }
 
-export function Delete(characterId) {
+export function remove(characterId) {
   return fetch(`http://localhost:4000/user/${characterId}`, {
         method: 'DELETE',
         headers: {

@@ -1,9 +1,9 @@
 import Form from "./Components/Form";
-import { Delete, Fetcher, get, Update } from './Components/Fetcher';
+import { get, create } from './Components/Fetcher';
 import CharacterList from "./Components/CharacterList";
 import { useState, useEffect } from "react";
 import Modal from "./Components/Modal";
-import SearchUsers from "./Components/CharacterList";
+// import SearchUsers from "./Components/CharacterList";
 // import SortComponent from "./Components/SortComponent";
 
 function App() {
@@ -19,6 +19,7 @@ function App() {
       side: '',
       dateAdded: 0
     });
+
     const newChar = {
       avatar: '',
       name: '',
@@ -39,11 +40,8 @@ function App() {
     useEffect(() => { loadCharacters() }, [])
 
   
-
-
-
-  const setEditModal = async (id) => {
-
+  const setEditModal = async (id) => {  
+    console.log('hello');
     const response = await fetch(`http://localhost:4000/users/${id}`);
     const character = await response.json();
 
@@ -55,35 +53,25 @@ function App() {
 
   const makeCall = (e,data) => {
     e.preventDefault();
-    Fetcher(data)
+    create(data)
     .then(res => {
       if(res.ok) {
         loadCharacters();
       }
     });
-    // Fetcher()
   }
 
-  const makeUpdate = (e, data) => {
-    e.preventDefault();
-    Update(data)
-    .then(res => {
-      if(res.ok) {
-        loadCharacters();
-      }
-    })
-      setTurnOn(prev => !prev);
-  }
+
 
   
 
   return (
     <div className="App">
-      {/* <CharacterList userList={userList} setUserList={setUserList} setEditModal={setEditModal} character={character} deleteUser={"deleteUser"} loadCharacters={loadCharacters}  /> */}
-      <SearchUsers />
+      <CharacterList userList={userList} setUserList={setUserList} setEditModal={setEditModal} character={character} deleteUser={"deleteUser"} loadCharacters={loadCharacters}  />
+      {/* <SearchUsers setEditModal={setEditModal} userList={userList} /> */}
       <Form makeCall={makeCall} character={newChar} term={"create"} />
 
-      {turnOn && <Modal character={character} update={makeUpdate} setTurnOn={setTurnOn} />}
+      {turnOn && <Modal character={character} loadCharacters={loadCharacters} setTurnOn={setTurnOn} />}
     </div>
   );
 }

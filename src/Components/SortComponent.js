@@ -1,26 +1,29 @@
-import { useState } from "react"
+import React, { useState } from 'react'
 
-export default function SortComponent({ arr, setterFunction, sortByVal }) {
+export default function SortComponent({arr, valueToSort, setUserList}) {
+    const [sort, setSort] = useState(true);
 
-  const [sort, setSort] = useState(false);
 
-  const sorted = () => {
-    let newArr = arr.sort((a,b) => b[sortByVal] - a[sortByVal])
-    setterFunction([...newArr])
+    const sorted = () => {
+    let newArr = arr.sort((a,b) => b[valueToSort] - a[valueToSort])
+    setUserList([...newArr]);
     setSort(prev => !prev);
   }
 
-  const sortedDown = () => {
-    let newArr = arr.sort((a,b) => a[sortByVal] - b[sortByVal])
-    setterFunction([...newArr])
+    const sortedDown = () => {
+    let newArr = arr.sort((a,b) => a[valueToSort] - b[valueToSort])
+    setUserList([...newArr]);
+    arr = newArr;
     setSort(prev => !prev);
   }
-  
 
+  let button;
+    if(sort) {
+        button = <div className="sort-container"><button onClick={() => sorted()}>Sort by newest</button></div>
+    } else {
+        button = <div className="sort-container"><button onClick={() => sortedDown()}>Sort by oldest</button></div>
+    }
   return (
-    <>
-    { sort ? <div className="btn-container"><button onClick={() => sortedDown()}>Sort by oldest</button></div> : <div className="btn-container"><button onClick={() => sorted()}>Sort by newest</button></div> }
-    </>
-    
+    <div>{button}</div>
   )
 }

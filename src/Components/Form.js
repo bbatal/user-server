@@ -12,10 +12,8 @@ const avatars =
 
 const powers = ["control", "alter", "sense", "force", "mind", "earth"];
 
-export default function Form({ makeCall, character, term }) {
+function Form({ makeCall, term, character }) {
     const [formObj, setFormObj] = useState(character);
-
-
 
     const handleChange = (e) => {
         const newData = {...formObj};
@@ -25,7 +23,7 @@ export default function Form({ makeCall, character, term }) {
 
 
   return (
-    <form onSubmit={(e) => makeCall(e, formObj)}>
+    <form onSubmit={(e) => {makeCall(e, formObj); setFormObj(character)}}>
         <div className="form-group">
             <label htmlFor="avatar">Choose an avatar:</label>
             <select 
@@ -111,3 +109,5 @@ export default function Form({ makeCall, character, term }) {
     </form>
   )
 }
+
+export default Form;

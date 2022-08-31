@@ -1,10 +1,10 @@
 import React from 'react';
-import { Delete } from './Fetcher';
+import { remove } from './Fetcher';
 
 export default function CharacterControls({ id, setEditModal, loadCharacters }) {
 
     const deleteUser = async (id) => {
-    const response = await Delete(id);
+    const response = await remove(id);
 
     if(response.ok) {
       loadCharacters();

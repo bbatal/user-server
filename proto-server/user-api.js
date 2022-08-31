@@ -23,7 +23,7 @@ let users = [
         power: 'force',
         lightsaber: 'gold',
         side: 'light',
-        id: 'user_00',
+        id: 'user_02',
         dateAdded: Date.now()
     },
     {
@@ -32,7 +32,34 @@ let users = [
         power: 'sense',
         lightsaber: 'green',
         side: 'dark',
-        id: 'user_000',
+        id: 'user_03',
+        dateAdded: Date.now()
+    },
+    {
+        avatar: '0022',
+        name: 'Benjamin',
+        power: 'alter',
+        lightsaber: 'blue',
+        side: 'light',
+        id: 'user_04',
+        dateAdded: Date.now()
+    },
+    {
+        avatar: '0013',
+        name: 'Kim Wexler',
+        power: 'force',
+        lightsaber: 'gold',
+        side: 'light',
+        id: 'user_05',
+        dateAdded: Date.now()
+    },
+    {
+        avatar: '0023',
+        name: 'Darth Odin',
+        power: 'sense',
+        lightsaber: 'green',
+        side: 'dark',
+        id: 'user_06',
         dateAdded: Date.now()
     }
 ]
