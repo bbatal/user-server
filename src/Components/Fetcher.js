@@ -44,6 +44,21 @@ export function update(data) {
     }).catch(err => err);
 }
 
+export function getChar(characterId) {
+  return fetch(`http://localhost:4000/users/${characterId}`, {
+        method: 'GET',
+        headers: {
+             'Content-Type': 'application/json'
+        }
+  }).then((response) => {
+    if (response.status >= 200 && response.status < 300) {
+        return response;
+      } else {
+       console.log('This character does not exist');
+      }
+    }).catch(err => err);
+}
+
 export function remove(characterId) {
   return fetch(`http://localhost:4000/user/${characterId}`, {
         method: 'DELETE',

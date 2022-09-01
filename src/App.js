@@ -25,7 +25,10 @@ function App() {
     
     const loadCharacters = async () => {
       const data = await get();
-      setUserList(data);
+        if(data) {
+        setUserList(data);
+      }
+     
       }
 
     useEffect(() => { loadCharacters() }, [])
