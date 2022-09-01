@@ -94,10 +94,10 @@ app.get('/users', (req, res) => {
 })
 
 app.get('/users/:id', (req, res) => {
-    // Reading isbn from the URL
+    // Reading id from the URL
     const id = req.params.id;
 
-    // Searching books for the isbn
+    // Searching users for the id
     for (let user of users) {
         if (user.id === id) {
             res.json(user);
@@ -130,12 +130,12 @@ app.delete('/user/:id', (req, res) => {
 
 //put
 app.put('/user/:id', (req, res) => {
-    console.log('hi');
+    // console.log('hi');
     // Reading isbn from the URL
     const id = req.params.id;
     const updatedUser = req.body;
 
-    console.log(id, updatedUser);
+    // console.log(id, updatedUser);
 
     // Remove item from the books array
     for (let i = 0; i < users.length; i++) {

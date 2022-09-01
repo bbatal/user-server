@@ -5,7 +5,7 @@ const withHOC = (WrappedComponent, entity) => {
     return class extends React.Component {
 
     state = {
-        data: this.props.userList,
+        data: [],
         term: '',
         sort: true
     }
@@ -17,7 +17,7 @@ const withHOC = (WrappedComponent, entity) => {
         }
 
         fetchData();
-        this.setState({...this.state, data: this.props.userList})
+        // this.setState({...this.state, data: this.props.userList})
     }
 
         sorted = () => {
@@ -33,7 +33,7 @@ const withHOC = (WrappedComponent, entity) => {
         render() {
             let { term, data, sort } = this.state;
 
-            console.log(this.props.userList);
+            // console.log(this.props.userList);
 
             let filteredData = data.filter(item => {
                 if (entity === "users") {
